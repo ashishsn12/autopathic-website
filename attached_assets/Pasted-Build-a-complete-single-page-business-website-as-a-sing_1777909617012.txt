@@ -1,0 +1,499 @@
+Build a complete, single-page business website as a single HTML file with
+all CSS and JavaScript inline (no external files except Google Fonts). 
+The site must be production-ready, fully responsive (mobile + desktop), 
+and deployable directly to Vercel.
+
+==============================================================
+SECTION 1 — FONTS
+==============================================================
+
+Import from Google Fonts:
+  - Playfair Display (weights: 400, 600, 700) → used for ALL headings and the brand name
+  - DM Sans (weights: 300, 400, 500, 600) → used for ALL sub-headings, body text, nav links, 
+    buttons, labels, and any other non-heading text
+
+Font usage rules:
+  - H1, H2, H3, brand name in navbar → Playfair Display, 700
+  - Section sub-headings, card titles → Playfair Display, 600
+  - All body text, paragraphs, descriptions → DM Sans, 400
+  - Buttons, nav links, labels, tags → DM Sans, 500 or 600
+  - Never mix these two with any third font family
+
+==============================================================
+SECTION 2 — COLOR PALETTE (use ONLY these 4 values)
+==============================================================
+
+  --navy:       #0F1C2E    ← primary dark, used for headings and dark backgrounds
+  --off-white:  #F5F5F0    ← warm off-white, primary light background
+  --teal:       #0D9488    ← accent color for buttons, highlights, hover states, icons
+  --light-grey: #E8EBF0    ← alternate section background (subtle contrast from off-white)
+
+Color usage rules:
+  - Odd sections (Hero, Services, How We Work) → background: --off-white, text: --navy
+  - Even sections (About Us, Our Work, Contact) → background: --light-grey, text: --navy
+  - Navbar → background: --navy (dark), all links and brand name → white
+  - Buttons primary → background: --teal, text: white
+  - Buttons secondary/outline → border: --teal, text: --teal, background: transparent
+  - Accent lines, icons, underlines → --teal
+  - Do NOT use pure black (#000) anywhere. Use --navy for all dark text.
+  - Do NOT use pure white (#fff) for backgrounds. Use --off-white or --light-grey.
+
+==============================================================
+SECTION 3 — HERO SECTION ANIMATION
+==============================================================
+
+Build a lightweight interactive canvas animation for the hero section background:
+
+  - Draw ~60 small circular dots (radius 2px) randomly distributed across the hero canvas
+  - Connect dots that are within 120px of each other with thin lines
+  - Dots move slowly and continuously in random directions, bouncing off canvas edges
+  - On mouse move, dots within 150px of the cursor are gently repelled (push away slightly)
+  - Colors: dots → rgba(13, 148, 136, 0.5) [teal, semi-transparent]
+             lines → rgba(13, 148, 136, 0.15) [teal, very faint]
+  - Canvas sits behind all hero text content (z-index: 0), text is z-index: 1
+  - Canvas background: transparent (hero section background color shows through)
+  - Animation must be lightweight — use requestAnimationFrame, cap at 60fps
+  - On mobile (screen width < 768px): reduce dots to 30, disable mouse interaction
+
+==============================================================
+SECTION 4 — BUTTONS & CTA STYLE
+==============================================================
+
+All CTA buttons must follow this pattern:
+
+Primary button (e.g., "Book a Free Call", "Our Services"):
+  - Background: --teal
+  - Text: white, DM Sans 600
+  - Padding: 14px 32px
+  - Border-radius: 6px
+  - Border: none
+  - Transition: all 0.3s ease
+  - On hover: box-shadow: 0 0 18px rgba(13, 148, 136, 0.55) [teal glow]
+              transform: translateY(-2px)
+              background: slightly lighter teal (#0f9f93)
+
+Secondary/outline button (e.g., "See Our Services" when on dark BG):
+  - Background: transparent
+  - Border: 2px solid --teal
+  - Text: --teal, DM Sans 600
+  - Padding: 14px 32px
+  - Border-radius: 6px
+  - On hover: background: --teal, text: white
+              box-shadow: 0 0 18px rgba(13, 148, 136, 0.55) [teal glow]
+              transform: translateY(-2px)
+
+==============================================================
+SECTION 5 — NAVBAR
+==============================================================
+
+Sticky top navbar. Stays fixed at top on scroll.
+
+Left side:
+  - Brand name: "AutoPathic" in Playfair Display 700, white, font-size 22px
+
+Right side (desktop):
+  - Links: Services | Our Work | About Us | Contact
+  - Link style: DM Sans 500, white, font-size 15px, letter-spacing: 0.3px
+  - On hover: color changes to --teal, smooth transition 0.2s
+  - "Book a Call" → styled as a small primary teal button (same style as above but smaller padding: 10px 22px)
+
+Mobile:
+  - Hamburger menu icon (3 lines) on right
+  - On click: slide-down dropdown menu showing all nav links stacked vertically
+  - Menu background: --navy
+  - All links in white
+
+Navbar background: --navy
+Add a subtle bottom border: 1px solid rgba(255,255,255,0.08)
+On scroll (after 50px): add box-shadow: 0 2px 20px rgba(0,0,0,0.3)
+
+==============================================================
+SECTION 6 — HERO SECTION
+==============================================================
+
+Full viewport height (min-height: 100vh). Canvas animation behind content.
+
+Layout (centered, max-width 800px):
+  - Small tag/badge above headline: "Data · Dashboards · Automation · Web" 
+    → DM Sans 500, --teal color, letter-spacing: 2px, font-size: 12px, uppercase
+  - Headline (H1): "Your business runs on data."
+                   "We make it work for you."
+    → Playfair Display 700, --navy, font-size: clamp(40px, 6vw, 68px)
+    → Line 2 should be slightly indented or styled differently to add visual rhythm
+  - Sub-headline: "We build dashboards, automate repetitive workflows, and create websites — so your team spends less time on repetitive work and more time on what actually matters."
+    → DM Sans 400, --navy, opacity 0.75, font-size: 18px, max-width: 600px, line-height: 1.7
+  - Two CTA buttons side by side (gap: 16px):
+      Button 1: "Our Services" → primary teal button (scrolls to Services section)
+      Button 2: "Book a Free Call" → outline button (scrolls to Contact section)
+
+Add a subtle animated underline or highlight effect on "work for you" in the headline 
+using a teal color (CSS animation, not JS).
+
+On page load: fade-in + slide-up animation for the tag, headline, sub-headline, and buttons 
+(staggered: each element 150ms after the previous, translateY from 30px to 0, opacity 0→1).
+
+==============================================================
+SECTION 7 — ABOUT US SECTION
+==============================================================
+
+Background: --light-grey
+Two-column layout on desktop (left: text content, right: a styled stats/highlights block)
+Single column on mobile (text stacked above stats)
+
+LEFT COLUMN — text content:
+  Section label (small uppercase): "ABOUT US" → DM Sans 600, --teal, font-size: 12px, letter-spacing: 3px
+  Heading (H2): "We help growing businesses stop wasting time on manual work."
+  → Playfair Display 700, --navy, font-size: clamp(28px, 4vw, 42px)
+
+  Body paragraphs (DM Sans 400, --navy opacity 0.8, font-size: 16px, line-height: 1.8):
+
+  Paragraph 1:
+  "Most small businesses and startups reach a point where spreadsheets stop being enough. 
+  Data is scattered. Reports take hours to compile. Processes that should be automatic are 
+  still done by hand. Teams are working hard, but the tools aren't keeping up."
+
+  Paragraph 2:
+  "That's the gap we exist to close. We specialise in building business dashboards, process 
+  automation, and web solutions for businesses that are growing and need systems to match. 
+  We don't build bloated, overengineered solutions. We build practical, reliable systems 
+  that your team can actually use — starting from day one."
+
+  Paragraph 3:
+  "If your business is growing and your systems are not keeping up, we'd like to talk."
+
+  Small footer text: "Based in Bangalore, India. Available for remote engagements across India."
+  → DM Sans 400, --teal, font-size: 14px, margin-top: 8px
+
+RIGHT COLUMN — styled highlights box:
+  A card with background --navy, border-radius: 12px, padding: 36px
+  Display 3 stat-like items stacked vertically:
+
+    Item 1:
+      Number/Icon: "3+" (Playfair Display 700, --teal, font-size: 40px)
+      Label: "Real-world projects delivered" (DM Sans 400, white, font-size: 14px)
+
+    Item 2:
+      Number/Icon: "2.5 yrs" (Playfair Display 700, --teal, font-size: 40px)
+      Label: "Hands-on data & operations experience" (DM Sans 400, white, font-size: 14px)
+
+    Item 3:
+      Number/Icon: "100%" (Playfair Display 700, --teal, font-size: 40px)
+      Label: "Focus on practical, usable solutions" (DM Sans 400, white, font-size: 14px)
+
+  Add a thin horizontal divider (1px, rgba(255,255,255,0.1)) between each item.
+
+==============================================================
+SECTION 8 — SERVICES SECTION
+==============================================================
+
+Background: --off-white
+Section label: "WHAT WE DO" → DM Sans 600, --teal, font-size: 12px, letter-spacing: 3px, uppercase
+Section heading (H2): "Services built around your real business problems"
+→ Playfair Display 700, --navy
+
+3 cards in a row on desktop, stacked on mobile.
+
+Each card:
+  - Background: white
+  - Border-radius: 12px
+  - Padding: 36px 32px
+  - Box-shadow: 0 4px 20px rgba(0,0,0,0.06)
+  - On hover: transform: translateY(-6px), box-shadow: 0 12px 32px rgba(0,0,0,0.1)
+              border-top: 3px solid --teal (animate in on hover)
+  - Transition: all 0.3s ease
+
+CARD 1 — Business Dashboards:
+  Icon: a simple SVG bar-chart icon in --teal (draw inline SVG, 32px)
+  Tag/number: "01" → DM Sans 600, --teal, font-size: 13px, letter-spacing: 2px
+  Title (H3): "Business Dashboards" → Playfair Display 600, --navy
+  Tagline (italic): "Know exactly what's happening in your business — clearly, in real time"
+  → DM Sans 400 italic, --teal, font-size: 15px
+  Body: "You're probably tracking data across multiple sheets, teams, or systems. We bring 
+  everything into a single dashboard so you can track KPIs and performance without chasing numbers."
+  → DM Sans 400, --navy opacity 0.75, font-size: 15px, line-height: 1.7
+  Tools label: "Tools:" → DM Sans 600, --navy, font-size: 13px
+  Tool tags: "Looker Studio" "Google Sheets" "Power BI"
+  → Small pill tags: background --light-grey, text --navy, DM Sans 500, font-size: 12px,
+    padding 4px 12px, border-radius: 20px
+
+CARD 2 — Business Process Automation:
+  Icon: a simple SVG gear/cog icon in --teal (draw inline SVG, 32px)
+  Tag/number: "02" → DM Sans 600, --teal
+  Title (H3): "Business Process Automation" → Playfair Display 600, --navy
+  Tagline (italic): "Stop doing the same thing twice"
+  Body: "If your team is manually updating sheets, sending emails by hand, or generating 
+  reports one by one — that's time lost every single day. We build simple automation systems 
+  that handle this for you, so your team focuses on work that actually requires them."
+  Tools: "Make.com" "Zapier" "Google Sheets" "AppSheet"
+
+CARD 3 — Business Websites:
+  Icon: a simple SVG monitor/screen icon in --teal (draw inline SVG, 32px)
+  Tag/number: "03" → DM Sans 600, --teal
+  Title (H3): "Business Websites" → Playfair Display 600, --navy
+  Tagline (italic): "Simple websites that bring leads and clearly explain what you do"
+  Body: "Clean, fast, mobile-friendly websites for businesses and startups. No template bloat. 
+  A site that clearly tells visitors who you are and gets them to contact you."
+  Tools: "HTML / CSS / JS" "Replit" "Vercel"
+
+==============================================================
+SECTION 9 — OUR WORK SECTION
+==============================================================
+
+Background: --light-grey
+Section label: "OUR WORK" → DM Sans 600, --teal, uppercase, letter-spacing: 3px
+Section heading (H2): "Projects we've built for real businesses"
+→ Playfair Display 700, --navy
+
+Display 3 case study cards. Each card full-width (stacked vertically, not in a row).
+Each card is a two-column layout: LEFT = laptop mockup, RIGHT = case study text.
+Alternate left-right layout: Card 1 → image left, Card 2 → image right, Card 3 → image left.
+On mobile: stack vertically (image on top, text below) for all cards.
+
+LAPTOP MOCKUP — build in pure CSS (no images needed for the frame itself):
+  The dashboard image provided by the user will be placed inside the laptop screen.
+
+  CSS laptop frame structure:
+    - Outer container: the laptop body (dark grey #1a1a2e, border-radius 12px 12px 0 0, 
+      aspect ratio ~16:10, padding 8px)
+    - Inner screen area: black background, overflow hidden, border-radius: 6px
+    - Inside screen area: place the user's dashboard <img> tag filling 100% width and height
+      (object-fit: cover, object-position: top)
+    - Below the screen body: a thin laptop base/hinge bar (height: 8px, background: #2a2a3e, 
+      border-radius: 0 0 4px 4px, width: 100%)
+    - Below hinge: laptop bottom bar/stand (height: 14px, background: #222236, 
+      border-radius: 0 0 10px 10px, width: 80%, margin: 0 auto)
+    - Add subtle box-shadow: 0 20px 60px rgba(0,0,0,0.25) to give depth
+
+  Image placeholder instructions in the HTML comments:
+  <!-- Replace src="YOUR_IMAGE_HERE" with your actual dashboard screenshot -->
+
+  The laptop frame must be max-width: 480px on desktop, full-width on mobile.
+
+CASE STUDY TEXT (right column on desktop):
+  Project number tag: e.g., "Project 01" → DM Sans 600, --teal, font-size: 12px, uppercase, letter-spacing: 2px
+  Project name (H3): Playfair Display 700, --navy, font-size: clamp(22px, 3vw, 32px)
+  Short description: DM Sans 400, --navy opacity 0.8, font-size: 15px, line-height: 1.7, margin-bottom: 20px
+
+  "Problem" label → DM Sans 700, --navy, font-size: 13px, uppercase, letter-spacing: 1px
+  Problem bullet points → DM Sans 400, --navy opacity 0.75, font-size: 14px, line-height: 1.8
+  (Use custom teal dot bullets: before each li, use content: "●", color: --teal, margin-right: 8px)
+
+  "Solution" label → same style as Problem label
+  Solution text → DM Sans 400, --navy opacity 0.75, font-size: 14px, line-height: 1.8
+
+  "Impact" label → same style
+  Impact text → DM Sans 400, --teal, font-size: 14px, font-style: italic
+  (Leave a placeholder: "Impact details to be added" as placeholder text, styled in --teal italic)
+
+  Divider between cards: 1px solid rgba(15, 28, 46, 0.1), margin: 48px 0
+
+--- CASE STUDY DATA ---
+
+CARD 1 — Tool Management System:
+  Description: "Built for a manufacturing company to replace a paper-based tool tracking system 
+  with a fully digital, low-code application."
+  Problem bullets:
+    - No visibility of tool inventory across the floor
+    - Difficulty tracking which tools were issued or returned
+    - No approval workflow for tool requests
+    - No tracking of tool lifecycle or vendor data
+  Solution: "Built an internal app using AppSheet (low-code) that digitised the entire tool 
+  tracking process — from inventory and issuance to approvals and lifecycle monitoring. 
+  Replaced scattered manual records and improved cross-team visibility."
+  Impact: [placeholder]
+  Image: src="images/tool-management.png" (user will replace)
+
+CARD 2 — On-Time Delivery (OTD) Performance Dashboard:
+  Description: "Designed to monitor delivery commitments and dispatch performance for the 
+  sales and leadership team of a manufacturing business."
+  Problem bullets:
+    - Delivery performance tracked via manual weekly spreadsheet reports
+    - Review meetings wasted time compiling data instead of analysing it
+    - Metrics were inconsistent and prone to human error
+  Solution: "Built an auto-updating report that extracts data from multiple sources without 
+  human intervention. Used this as the data layer for an OTD Dashboard that consolidates 
+  order and dispatch data into a single live interface."
+  Impact: [placeholder]
+  Image: src="images/otd-dashboard.png" (user will replace)
+
+CARD 3 — Operations Performance Dashboard:
+  Description: "A real-time operations monitoring dashboard tracking production KPIs across 
+  multiple stages of a manufacturing facility."
+  Problem bullets:
+    - Production KPIs reviewed through multiple Excel sheets compiled manually each week
+    - Significant time and effort lost in data preparation
+    - No real-time view available for management decision-making
+  Solution: "Built a live operations dashboard that eliminated manual report compilation 
+  and gave management real-time visibility into production performance across all stages."
+  Impact: [placeholder]
+  Image: src="images/operations-dashboard.png" (user will replace)
+
+==============================================================
+SECTION 10 — HOW WE WORK SECTION
+==============================================================
+
+Background: --off-white
+Section label: "OUR PROCESS" → DM Sans 600, --teal, uppercase, letter-spacing: 3px
+Section heading (H2): "How we work with you"
+→ Playfair Display 700, --navy
+
+Display as a horizontal step-by-step flow on desktop (5 steps in a row).
+On mobile: stacked vertically with connecting line on the left side.
+
+Each step:
+  - Step number circle: 40px × 40px circle, background: --teal, text: white, 
+    Playfair Display 700, font-size: 18px
+  - Connecting line between circles (desktop: horizontal; mobile: vertical): 
+    1px dashed line, color: rgba(13, 148, 136, 0.35)
+  - Step title: DM Sans 600, --navy, font-size: 15px, margin-top: 12px
+  - Step description: DM Sans 400, --navy opacity 0.7, font-size: 14px, line-height: 1.6
+
+Steps:
+  1. "Understanding the Process" — "We learn how your current system and workflow operates."
+  2. "Identifying Problems" — "We pinpoint bottlenecks, repetitive tasks, and data gaps."
+  3. "Design the Solution" — "We plan a simple, practical, and scalable system that fits your team."
+  4. "Build & Implement" — "We develop the solution and integrate it into your existing workflow."
+  5. "Support & Optimise" — "We ensure smooth usage, monitor outcomes, and improve further as needed."
+
+On hover over each step circle: scale(1.1), box-shadow: 0 0 14px rgba(13, 148, 136, 0.4)
+
+==============================================================
+SECTION 11 — CONTACT SECTION
+==============================================================
+
+Background: --navy (dark background)
+All text: white or off-white
+
+Section heading (H2): "Let's fix what's slowing your business down"
+→ Playfair Display 700, white, font-size: clamp(28px, 4vw, 44px), text-align: center
+
+Sub-text: "Drop us a message or book a free 20-minute call — no pitch, just a conversation 
+about what you need."
+→ DM Sans 400, rgba(255,255,255,0.7), font-size: 17px, text-align: center, max-width: 560px, 
+  margin: 0 auto 40px
+
+Two-column layout on desktop:
+  LEFT column (55% width): contact form
+  RIGHT column (45% width): contact details
+
+CONTACT FORM:
+  Input fields: Name, Business Name, Message (textarea, 5 rows)
+  Dropdown: "What do you need help with?" → Options: Dashboards / Process Automation / Website / Others
+  
+  Field styling:
+    - Background: rgba(255,255,255,0.06)
+    - Border: 1px solid rgba(255,255,255,0.15)
+    - Border-radius: 8px
+    - Text: white, DM Sans 400, font-size: 15px
+    - Placeholder: rgba(255,255,255,0.35)
+    - Padding: 14px 16px
+    - On focus: border-color: --teal, box-shadow: 0 0 0 3px rgba(13,148,136,0.2), outline: none
+    - Labels: DM Sans 500, white, font-size: 14px, margin-bottom: 6px
+  
+  Submit button: "Send Message" → full-width, primary teal button style with glow on hover
+  
+  Note below form (small): "We typically respond within 24 hours."
+  → DM Sans 400, rgba(255,255,255,0.45), font-size: 13px
+
+CONTACT DETAILS (right column):
+  Heading: "Or reach us directly" → DM Sans 600, white, font-size: 16px, margin-bottom: 20px
+  
+  Each detail item: icon + text, vertically stacked with 16px gap
+  
+  Email:
+    Icon: envelope SVG (inline, 20px, --teal)
+    Text: "ashishsn1210@gmail.com" → DM Sans 400, white, font-size: 15px
+    Link: mailto:ashishsn1210@gmail.com (opens mail client)
+  
+  Phone / WhatsApp:
+    Icon: phone SVG (inline, 20px, --teal)
+    Text: "+91 99862 99629" → DM Sans 400, white, font-size: 15px
+    Link: tel:+919986299629
+  
+  LinkedIn:
+    Icon: LinkedIn SVG (inline, 20px, --teal)
+    Text: "linkedin.com/in/ashishsn" → DM Sans 400, white, font-size: 15px
+    Link: https://www.linkedin.com/in/ashishsn/ (opens in new tab)
+  
+  On hover over each contact item: --teal color, translateX(4px), smooth 0.2s transition
+
+==============================================================
+SECTION 12 — FOOTER
+==============================================================
+
+Background: #080F1A (slightly darker than --navy)
+Padding: 28px 0
+Border-top: 1px solid rgba(255,255,255,0.06)
+
+Left: "© 2026 AutoPathic. All rights reserved." → DM Sans 400, rgba(255,255,255,0.4), font-size: 13px
+Right: "Bangalore, India" → DM Sans 400, rgba(255,255,255,0.4), font-size: 13px
+On mobile: both items centered, stacked.
+
+==============================================================
+SECTION 13 — SCROLL ANIMATIONS
+==============================================================
+
+Use Intersection Observer API (no external library).
+All sections: on scroll into view, animate from opacity: 0, translateY: 30px → opacity: 1, translateY: 0
+Duration: 0.6s, ease-out
+Stagger child elements within sections with 100ms delays (for cards, steps, etc.)
+Once animated in, elements stay visible (do not reverse on scroll out).
+
+==============================================================
+SECTION 14 — GENERAL REQUIREMENTS
+==============================================================
+
+1. Single HTML file — all CSS in <style> tag, all JS in <script> tag at bottom of body.
+   Google Fonts imported via <link> in <head>.
+
+2. Fully responsive:
+   - Desktop: max-width 1200px container, centered
+   - Tablet (< 1024px): adjust grid to 2 columns or single column
+   - Mobile (< 768px): single column, font sizes scale down, buttons stack
+
+3. Smooth scroll behavior: html { scroll-behavior: smooth; }
+
+4. Active nav link highlighting: when scrolled to a section, the corresponding 
+   nav link turns --teal color.
+
+5. No external JS libraries (jQuery, Bootstrap, etc.). Vanilla JS only.
+
+6. All section IDs for anchor links:
+   #services → Services section
+   #work → Our Work section
+   #about → About Us section
+   #contact → Contact section
+
+7. Image placeholders: in the Our Work section, use <img> tags with:
+   src="images/tool-management.png", src="images/otd-dashboard.png", 
+   src="images/operations-dashboard.png"
+   Add HTML comment above each: <!-- Replace with your actual dashboard screenshot -->
+   The images folder will be uploaded separately.
+
+8. Form: The contact form does not need a backend. On submit, show a success message 
+   inline: "Thanks! We'll be in touch within 24 hours." in --teal color, and clear the form.
+   Use basic JS form validation (required fields, basic email format check).
+
+9. Meta tags in <head>:
+   <title>Ashish S N — Dashboards, Automation & Web Solutions</title>
+   <meta name="description" content="We build business dashboards, process automations, 
+   and websites for growing businesses. Based in Bangalore, India.">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+10. Favicon: use emoji favicon: <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <text y='.9em' font-size='90'>📊</text></svg>">
+
+==============================================================
+END OF PROMPT
+==============================================================
+
+IMPORTANT NOTES FOR REPLIT:
+- Build everything in a single file: index.html
+- Create a folder called "images/" in the project root — it will be empty initially. 
+  The user will drag and drop their dashboard screenshots into this folder.
+- After building, the site should run immediately with "Run" and show the full layout 
+  (with grey placeholder boxes where the dashboard images will go — use CSS background: #1a1a2e 
+  with text "Dashboard screenshot goes here" as a placeholder inside the laptop mockup screens).
+- Do not use any npm packages or build tools. Pure HTML/CSS/JS.
+==============================================================

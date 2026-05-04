@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "AutoPathic Website"
+version = "1.0.0"
+id = "artifacts/autopathic-website"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22277
+
+[services.development]
+run = "pnpm --filter @workspace/autopathic-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/autopathic-website", "run", "build" ]
+publicDir = "artifacts/autopathic-website/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22277"
+BASE_PATH = "/"
