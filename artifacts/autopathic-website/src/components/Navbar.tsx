@@ -47,11 +47,37 @@ export function Navbar() {
     >
       <div className="container-custom mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#"
-          className="font-serif font-bold text-[22px] text-white"
-        >
-          AutoPathic
+        <a href="#" style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center', height: '32px', overflow: 'hidden'}}>
+          <span style={{
+            fontFamily: 'serif',
+            fontWeight: 'bold',
+            fontSize: '25px',
+            color: 'white',
+            display: 'inline-flex',
+            alignItems: 'center',
+            whiteSpace: 'nowrap',
+          }}>
+            <span>A</span>
+            <span style={{
+              display: 'inline-block',
+              maxWidth: isScrolled ? '0px' : '150px',
+              opacity: isScrolled ? 0 : 1,
+              overflow: 'hidden',
+              transition: 'max-width 0.5s ease, opacity 0.4s ease',
+            }}>uto</span>
+            <span style={{
+              display: 'inline-block',
+              transform: isScrolled ? 'translateX(-2px)' : 'translateX(0px)',
+              transition: 'transform 0.5s ease',
+            }}>P</span>
+            <span style={{
+              display: 'inline-block',
+              maxWidth: isScrolled ? '0px' : '150px',
+              opacity: isScrolled ? 0 : 1,
+              overflow: 'hidden',
+              transition: 'max-width 0.5s ease, opacity 0.4s ease',
+            }}>athic</span>
+          </span>
         </a>
 
         {/* Desktop Navigation */}
