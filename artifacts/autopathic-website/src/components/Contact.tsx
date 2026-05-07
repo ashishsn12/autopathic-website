@@ -15,13 +15,17 @@ export function Contact() {
     const formData = new FormData(form);
 
     const data = {
-      access_key: "be138253-4229-49b3-b9ec-5eb6a30eb6d5", // ← paste your key here
-      name: formData.get("name"),
-      business: formData.get("business"),
-      help: formData.get("help"),
-      message: formData.get("message"),
-      subject: "New enquiry from AutoPathic website",
-    };
+  access_key: "b7f63a49-83ca-4403-86fc-083f42174274",
+
+  name: formData.get("name"),
+  business: formData.get("business"),
+  email: formData.get("email"),
+  phone: formData.get("phone"),
+  help: formData.get("help"),
+  message: formData.get("message"),
+
+  subject: "New enquiry from AutoPathic website",
+};
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -71,77 +75,128 @@ export function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Priyanka V"
-                    className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] placeholder:text-white/35 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="business" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
-                    Business Name
-                  </label>
-                  <input
-                    type="text"
-                    id="business"
-                    name="business"
-                    required
-                    placeholder="PriyAbharanam"
-                    className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] placeholder:text-white/35 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="help" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
-                    What do you need help with?
-                  </label>
-                  <select
-                    id="help"
-                    name="help"
-                    required
-                    defaultValue=""
-                    className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all appearance-none"
-                    style={{ backgroundImage: `url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 1rem top 50%", backgroundSize: "0.65rem auto" }}
-                  >
-                    <option value="" disabled className="text-foreground">Select an option</option>
-                    <option value="Business Dashboards" className="text-foreground">Business Dashboards</option>
-                    <option value="Process Automation" className="text-foreground">Process Automation</option>
-                    <option value="Business Websites" className="text-foreground">Business Websites</option>
-                    <option value="Others" className="text-foreground">Others</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    placeholder="Tell us a bit about your current setup..."
-                    className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] placeholder:text-white/35 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all resize-none"
-                  ></textarea>
-                </div>
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full bg-primary text-white font-sans font-semibold text-[16px] px-[32px] py-[14px] rounded-md transition-all duration-300 hover:shadow-[0_0_18px_rgba(13,148,136,0.55)] hover:-translate-y-[2px] hover:bg-[#0f9f93] disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {isLoading ? "Sending..." : "Send Message"}
-                  </button>
-                  <p className="font-sans font-normal text-white/45 text-[13px] text-center mt-4">
-                    We typically respond within 24 hours.
-                  </p>
-                </div>
-              </form>
+  <div>
+    <label htmlFor="name" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
+      Name
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="John Doe"
+      className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] placeholder:text-white/35 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="business" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
+      Business Name <span className="text-primary">*</span>
+    </label>
+    <input
+      type="text"
+      id="business"
+      name="business"
+      required
+      placeholder="Acme Corp"
+      className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] placeholder:text-white/35 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="email" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
+      Email <span className="text-primary">*</span>
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      placeholder="you@company.com"
+      className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] placeholder:text-white/35 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="phone" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
+      Phone <span className="text-white/40 text-[12px]">(Optional)</span>
+    </label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="+91 98765 43210"
+      className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] placeholder:text-white/35 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="help" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
+      What do you need help with? <span className="text-primary">*</span>
+    </label>
+
+    <select
+      id="help"
+      name="help"
+      required
+      defaultValue=""
+      className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all appearance-none"
+      style={{
+        backgroundImage: `url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right 1rem top 50%",
+        backgroundSize: "0.65rem auto"
+      }}
+    >
+      <option value="" disabled className="text-foreground">
+        Select an option
+      </option>
+
+      <option value="Business Dashboards" className="text-foreground">
+        Business Dashboards
+      </option>
+
+      <option value="Process Automation" className="text-foreground">
+        Process Automation
+      </option>
+
+      <option value="Business Websites" className="text-foreground">
+        Business Websites
+      </option>
+
+      <option value="Others" className="text-foreground">
+        Others
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label htmlFor="message" className="block font-sans font-medium text-white text-[14px] mb-[6px]">
+      Message
+    </label>
+
+    <textarea
+      id="message"
+      name="message"
+      rows={5}
+      placeholder="Tell us a bit about your current setup..."
+      className="w-full bg-white/5 border border-white/15 rounded-[8px] text-white font-sans font-normal text-[15px] px-[16px] py-[14px] placeholder:text-white/35 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(13,148,136,0.2)] transition-all resize-none"
+    ></textarea>
+  </div>
+
+  <div className="pt-2">
+    <button
+      type="submit"
+      disabled={isLoading}
+      className="w-full bg-primary text-white font-sans font-semibold text-[16px] px-[32px] py-[14px] rounded-md transition-all duration-300 hover:shadow-[0_0_18px_rgba(13,148,136,0.55)] hover:-translate-y-[2px] hover:bg-[#0f9f93] disabled:opacity-60 disabled:cursor-not-allowed"
+    >
+      {isLoading ? "Sending..." : "Start the Conversation"}
+    </button>
+
+    <p className="font-sans font-normal text-white/45 text-[13px] text-center mt-4">
+      We typically respond within 24 hours.
+    </p>
+  </div>
+</form>
             )}
           </div>
 
