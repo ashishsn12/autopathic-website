@@ -63,7 +63,7 @@ export function Navbar() {
               maxWidth: isScrolled ? '0px' : '150px',
               opacity: isScrolled ? 0 : 1,
               overflow: 'hidden',
-              transition: 'max-width 0.5s ease, opacity 0.4s ease',
+              transition: 'max-width 0.4s ease, opacity 0.5s ease',
             }}>uto</span>
             <span style={{
               display: 'inline-block',
@@ -75,7 +75,7 @@ export function Navbar() {
               maxWidth: isScrolled ? '0px' : '150px',
               opacity: isScrolled ? 0 : 1,
               overflow: 'hidden',
-              transition: 'max-width 0.5s ease, opacity 0.4s ease',
+              transition: 'max-width 0.5s ease, opacity 0.5s ease',
             }}>athic</span>
           </span>
         </a>
