@@ -143,7 +143,7 @@ export function Hero() {
           </span>
         </div>
         
-        <h1 className="font-serif font-bold text-foreground text-[clamp(40px,6vw,68px)] leading-[1.1] mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
+        <h1 className="font-serif font-bold text-foreground text-[clamp(40px,6vw,55px)] leading-[1.1] mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
           The Pathway to Automating your Business <br />
           <span className="relative inline-block">
             with AutoPathic.
