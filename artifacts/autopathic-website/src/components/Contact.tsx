@@ -48,7 +48,7 @@ export function Contact() {
     <section id="contact" className="py-20 md:py-32 bg-foreground text-white" ref={ref}>
       <div className="container-custom mx-auto px-6">
         <div className="mb-16 text-center max-w-3xl mx-auto scroll-animate opacity-0 translate-y-8 transition-all duration-600">
-          <h2 className="font-serif font-bold text-white text-[clamp(20px,3.5vw,44px)] leading-tight mb-6 whitespace-nowrap">
+          <h2 className="font-serif font-bold text-white text-[clamp(20px,3.5vw,44px)] leading-tight mb-6 md:whitespace-nowrap">
             Let's fix what's slowing your business down
           </h2>
           <p className="font-sans font-normal text-white/70 text-[17px] leading-[1.6] max-w-[560px] mx-auto">
