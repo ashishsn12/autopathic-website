@@ -152,7 +152,7 @@ export function Hero() {
         </h1>
         
         <p className="font-sans font-normal text-foreground/75 text-[18px] leading-[1.7] max-w-[600px] mx-auto mb-10 opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-          We build dashboards, automate repetitive workflows, and create websites — so your team spends less time on repetitive work and more time on what actually matters.
+          We build dashboards, automate repetitive workflows, and create websites so your team spends less time on repetitive work and more time on what actually matters.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-up" style={{ animationDelay: '450ms' }}>
