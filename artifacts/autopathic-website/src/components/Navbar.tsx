@@ -11,7 +11,7 @@ export function Navbar() {
       setIsScrolled(window.scrollY > 50);
 
       // Active section detection
-      const sections = ["services", "work", "about", "contact"];
+      const sections = ["about", "services", "work", "process", "contact"];
       let current = "";
 
       for (const section of sections) {
@@ -31,11 +31,11 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Our Work", href: "#work" },
-    { name: "About Us", href: "#about" },
-    { name: "Contact", href: "#contact" },
-  ];
+  { name: "About Us", href: "#about" },
+  { name: "Services", href: "#services" },
+  { name: "Our Work", href: "#work" },
+  { name: "Our Process", href: "#process" },
+];
 
   return (
     <nav
