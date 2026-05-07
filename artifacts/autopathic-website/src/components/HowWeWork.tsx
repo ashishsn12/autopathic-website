@@ -32,7 +32,7 @@ export function HowWeWork() {
   const ref = useScrollAnimation();
 
   return (
-    <section className="py-20 md:py-32 bg-background" ref={ref}>
+    <section id="process" className="py-20 md:py-32 bg-background" ref={ref}>
       <div className="container-custom mx-auto px-6">
         <div className="mb-16 text-center max-w-3xl mx-auto scroll-animate opacity-0 translate-y-8 transition-all duration-600">
           <span className="inline-block font-sans font-semibold text-primary text-[12px] tracking-[3px] uppercase mb-4">
