@@ -15,7 +15,7 @@ export function Contact() {
     const formData = new FormData(form);
 
     const data = {
-      access_key: "b7f63a49-83ca-4403-86fc-083f42174274", // ← paste your key here
+      access_key: "be138253-4229-49b3-b9ec-5eb6a30eb6d5", // ← paste your key here
       name: formData.get("name"),
       business: formData.get("business"),
       help: formData.get("help"),
