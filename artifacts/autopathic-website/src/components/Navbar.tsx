@@ -87,11 +87,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`font-sans font-medium text-[15px] tracking-[0.3px] transition-colors duration-200 ${
-                  activeSection === link.href.substring(1)
-                    ? "text-primary"
-                    : "text-white hover:text-primary"
-                }`}
+                className="font-sans font-medium text-[15px] tracking-[0.3px] transition-colors duration-200 text-white hover:text-primary"
               >
                 {link.name}
               </a>
