@@ -144,9 +144,9 @@ export function Hero() {
         </div>
         
         <h1 className="font-serif font-bold text-foreground text-[clamp(40px,6vw,68px)] leading-[1.1] mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
-          Your business runs on data. <br />
+          The Pathway to Automating your Business <br />
           <span className="relative inline-block">
-            We make it work for you.
+            with AutoPathic.
             <span className="absolute bottom-0 left-0 w-full h-[6px] bg-primary/20 -z-10 animate-[expandWidth_1s_ease-out_0.5s_forwards] scale-x-0 origin-left"></span>
           </span>
         </h1>
