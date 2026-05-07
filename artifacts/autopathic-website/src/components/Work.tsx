@@ -12,8 +12,18 @@ const projects = [
       "No tracking of tool lifecycle or vendor data"
     ],
     solution: "Built an internal app using AppSheet (low-code) that digitised the entire tool tracking process — from inventory and issuance to approvals and lifecycle monitoring. Replaced scattered manual records and improved cross-team visibility.",
-    impact: "Impact details to be added",
-    image: "/images/tool-management.png",
+    impact: {
+      intro: "This system helped the organization:",
+      points: [
+        "Reduced manual tracking of tools, saving ~60% of time every month",
+        "Improved inventory visibility across the floor",
+        "Prevented loss or misplacement of tools",
+        "Streamlined operational workflows",
+        "Maintained structured records of tool lifecycle activities"
+      ]
+    },
+    image: "/images/project1.png",
+    imageClass: "object-cover object-[2%] scale-[1] origin-top-left",
   },
   {
     num: "02",
@@ -25,8 +35,17 @@ const projects = [
       "Metrics were inconsistent and prone to human error"
     ],
     solution: "Built an auto-updating report that extracts data from multiple sources without human intervention. Used this as the data layer for an OTD Dashboard that consolidates order and dispatch data into a single live interface.",
-    impact: "Impact details to be added",
-    image: "/images/otd-dashboard.png",
+    impact: {
+      intro: null,
+      points: [
+        "Saved ~40% of the time previously spent compiling weekly reports",
+        "Leadership could quickly evaluate delivery performance during weekly reviews",
+        "Improved visibility on delivery performance across the organization",
+        "Operational discussions shifted from data compilation to performance improvement"
+      ]
+    },
+    image: "/images/project2.png",
+    imageClass: "object-cover object-[center_12%]",
   },
   {
     num: "03",
@@ -38,8 +57,16 @@ const projects = [
       "No real-time view available for management decision-making"
     ],
     solution: "Built a live operations dashboard that eliminated manual report compilation and gave management real-time visibility into production performance across all stages.",
-    impact: "Impact details to be added",
-    image: "/images/operations-dashboard.png",
+    impact: {
+      intro: null,
+      points: [
+        "Saved ~35% of the time previously spent compiling reports and extracting key metrics",
+        "Improved visibility on production data and KPIs across all stages",
+        "Created a centralized platform for management to monitor key metrics in real time"
+      ]
+    },
+    image: "/images/project3.png",
+    imageClass: "object-cover object-[left_top] scale-[1] origin-top",
   }
 ];
 
@@ -69,14 +96,14 @@ export function Work() {
                 <div className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${isEven ? 'lg:flex-row-reverse' : ''}`}>
                   
                   {/* Laptop Mockup */}
-                  <div className="w-full lg:w-1/2 max-w-[480px] mx-auto lg:mx-0">
+                  <div className="w-full lg:w-1/2 max-w-[1000px] mx-auto lg:mx-0">
                     <div className="relative z-10 w-full rounded-t-[12px] bg-[#1a1a2e] p-2 aspect-[16/10] shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
                       <div className="w-full h-full bg-black rounded-[6px] overflow-hidden relative group">
                         {/* Replace with your actual dashboard screenshot */}
                         <img 
                           src={project.image} 
                           alt={`${project.title} screenshot`}
-                          className="w-full h-full object-cover object-top"
+                          className={`w-full h-full bg-black transition-transform duration-500 ${project.imageClass}`}
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
                             const parent = e.currentTarget.parentElement;
@@ -128,9 +155,19 @@ export function Work() {
 
                       <div>
                         <h4 className="font-sans font-bold text-foreground text-[13px] uppercase tracking-[1px] mb-2">Impact</h4>
-                        <p className="font-sans font-normal italic text-primary text-[14px]">
-                          {project.impact}
-                        </p>
+                        {project.impact.intro && (
+                          <p className="font-sans font-normal text-foreground/75 text-[14px] mb-2">
+                            {project.impact.intro}
+                          </p>
+                        )}
+                        <ul className="space-y-2">
+                          {project.impact.points.map((point, i) => (
+                            <li key={i} className="font-sans font-normal italic text-primary text-[14px] leading-[1.6] flex items-start">
+                              <span className="mr-2 leading-none mt-1 not-italic">●</span>
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
