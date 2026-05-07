@@ -20,7 +20,7 @@ export function Services() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
           {/* Card 1 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-[6px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:border-t-3 hover:border-t-primary scroll-animate opacity-0 translate-y-8 delay-100 flex flex-col h-full border-t-3 border-t-transparent border border-transparent">
+          <div className="bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-[6px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:border-t-3 hover:border-t-primary scroll-animate opacity-0 translate-y-8 delay-100 flex flex-col h-full border-t-3 border-t-transparent border border-transparent">
 
             <div className="p-8 lg:p-9 flex flex-col flex-grow">
               <div className="flex justify-between items-start mb-6">
@@ -54,7 +54,7 @@ export function Services() {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-[6px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:border-t-3 hover:border-t-primary scroll-animate opacity-0 translate-y-8 delay-200 flex flex-col h-full border-t-3 border-t-transparent border border-transparent">
+          <div className="bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-[6px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:border-t-3 hover:border-t-primary scroll-animate opacity-0 translate-y-8 delay-200 flex flex-col h-full border-t-3 border-t-transparent border border-transparent">
 
             <div className="p-8 lg:p-9 flex flex-col flex-grow">
               <div className="flex justify-between items-start mb-6">
@@ -89,7 +89,7 @@ export function Services() {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-[6px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:border-t-3 hover:border-t-primary scroll-animate opacity-0 translate-y-8 delay-300 flex flex-col h-full border-t-3 border-t-transparent border border-transparent">
+          <div className="bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-200 hover:-translate-y-[6px] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:border-t-3 hover:border-t-primary scroll-animate opacity-0 translate-y-8 delay-300 flex flex-col h-full border-t-3 border-t-transparent border border-transparent">
 
             <div className="p-8 lg:p-9 flex flex-col flex-grow">
               <div className="flex justify-between items-start mb-6">
