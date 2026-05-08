@@ -11,7 +11,7 @@ export function About() {
             ABOUT US
           </span>
           <h2 className="font-serif font-bold text-foreground text-[clamp(28px,4vw,42px)] leading-tight max-w-2xl">
-            We help growing businesses stop wasting time on manual work.
+            We help growing businesses stop wasting time on manual & repetitive work.
           </h2>
         </div>
 
